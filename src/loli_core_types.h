@@ -13,7 +13,7 @@ typedef struct {
 
     uint16_t item_kind;
     uint16_t flags;
-     
+
     uint16_t cls_id;
     uint16_t pad;
 
@@ -33,14 +33,14 @@ typedef struct loli_class_ {
     uint16_t item_kind;
     uint16_t flags;
     uint16_t id;
-     
+
     uint16_t type_subtype_count;
 
-     
+
     struct loli_type_ *self_type;
 
     char *name;
-     
+
     uint64_t shorthash;
 
     struct loli_class_ *parent;
@@ -48,7 +48,7 @@ typedef struct loli_class_ {
     struct loli_named_sym_ *members;
 
     uint16_t inherit_depth;
-     
+
     int16_t generic_count;
     union {
         uint16_t prop_count;
@@ -56,26 +56,26 @@ typedef struct loli_class_ {
     };
     uint16_t dyna_start;
 
-     
+
     struct loli_module_entry_ *module;
 
-     
+
     struct loli_type_ *all_subtypes;
 } loli_class;
 
 typedef struct loli_type_ {
-     
+
     struct loli_type_ *next;
 
     uint16_t item_kind;
     uint16_t flags;
-     
+
     uint16_t generic_pos;
     uint16_t subtype_count;
 
     loli_class *cls;
 
-     
+
     struct loli_type_ **subtypes;
 } loli_type;
 
@@ -96,7 +96,7 @@ typedef struct loli_sym_ {
     void *pad;
     uint16_t item_kind;
     uint16_t flags;
-     
+
     uint16_t reg_spot;
     uint16_t pad2;
     loli_type *type;
@@ -140,7 +140,7 @@ typedef struct loli_storage_ {
     uint16_t flags;
     uint16_t reg_spot;
     uint16_t pad;
-     
+
     loli_type *type;
     uint32_t expr_num;
 } loli_storage;
@@ -154,11 +154,11 @@ typedef struct loli_var_ {
     loli_type *type;
     char *name;
     uint64_t shorthash;
-     
+
     uint32_t line_num;
-     
+
     uint32_t function_depth;
-     
+
     struct loli_class_ *parent;
 } loli_var;
 
@@ -173,10 +173,10 @@ typedef struct loli_module_link_ {
 } loli_module_link;
 
 typedef struct loli_module_entry_ {
-     
+
     struct loli_module_entry_ *root_next;
 
-     
+
     uint16_t item_kind;
 
     uint16_t flags;
@@ -185,36 +185,36 @@ typedef struct loli_module_entry_ {
 
     uint16_t cmp_len;
 
-     
+
     char *loadname;
 
-     
+
     char *dirname;
 
-     
+
     union {
         char *path;
-         
+
         const char *const_path;
     };
 
-     
+
     loli_module_link *module_chain;
 
-     
+
     loli_class *class_chain;
 
-     
+
     loli_var *var_chain;
 
     loli_boxed_sym *boxed_chain;
 
     const char *root_dirname;
 
-     
+
     void *handle;
 
-     
+
     const char **info_table;
 
     void (**call_table)(struct loli_vm_state_ *);
@@ -223,15 +223,15 @@ typedef struct loli_module_entry_ {
 } loli_module_entry;
 
 typedef struct loli_proto_ {
-     
+
     const char *module_path;
-     
+
     char *name;
-     
+
     uint16_t *locals;
-     
+
     uint16_t *code;
-     
+
     char *arg_names;
 } loli_proto;
 
