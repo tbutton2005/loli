@@ -2359,7 +2359,7 @@ void loli_vm_execute(loli_vm_state *vm)
                  
                 if ((step_reg->value.integer > 0)
                          
-                        ? (for_temp <= rhs_reg->value.integer)
+                        ? (for_temp < rhs_reg->value.integer)
                          
                         : (for_temp >= rhs_reg->value.integer)) {
 
